@@ -2060,10 +2060,10 @@ function sheet(h){const o=$x('hmSheet');if(o)o.remove();const d=document.createE
 function login(){if($x('hmAuth'))return;const d=document.createElement('div');d.id='hmAuth';
 d.innerHTML='<img src="icon-192.png" alt="" onerror="this.style.display=\'none\'"><h1>HABIT MENTALITY</h1><p>سجّل دخولك أو ابدأ كضيف</p>'
 +'<button class="hmb g" onclick="hmSocial(\'google\')"><b style="font-family:Arial;font-size:1.3rem;color:#4285f4">G</b> المتابعة بحساب Google</button>'
-+'<button class="hmb f" onclick="hmSocial(\'facebook\')"><b style="font-family:Arial;font-size:1.3rem">f</b> المتابعة بحساب Facebook</button>'
++(gid('facebook')?'<button class="hmb f" onclick="hmSocial(\'facebook\')"><b style="font-family:Arial;font-size:1.3rem">f</b> المتابعة بحساب Facebook</button>':'')
 +'<button class="hmb o" onclick="hmGuest()">المتابعة كضيف (بدون حساب)</button><div id="hmN"></div>'
 +'<small>بياناتك محفوظة على جهازك. الدخول بحساب يضيف اسمك وصورتك، ويمهّد لمزامنة لاحقة.</small>';document.body.appendChild(d);setTimeout(()=>{try{window.__hmPreload&&window.__hmPreload()}catch(x){}},0)}
-const DEF={google:'',facebook:''}; /* اختياري: ضع Client ID / App ID هنا لو أردت تثبيتهما داخل الملف بدل إدخالهما في التطبيق */
+const DEF={google:'732643773595-3tnend1459q8pu2l2dg36a0e6rvk1iev.apps.googleusercontent.com',facebook:''}; /* اختياري: ضع Client ID / App ID هنا لو أردت تثبيتهما داخل الملف بدل إدخالهما في التطبيق */
 const gid=p=>(LS(p==='google'?'hm_gid':'hm_fbid')||DEF[p]||'').trim();
 /* فحص البيئة: Google وFacebook لا يعملان إلا من رابط https (أو localhost) مسجّل في لوحة المزوّد */
 function envErr(p){const pr=location.protocol,h=location.hostname;
